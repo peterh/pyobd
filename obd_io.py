@@ -96,35 +96,20 @@ class OBDPort:
          wx.PostEvent(self._notify_window, DebugEvent([1,"Interface successfully " + self.port.portstr + " opened"]))
          wx.PostEvent(self._notify_window, DebugEvent([1,"Connecting to ECU..."]))
          
-         count=0
-         while 1: #until error is returned try to connect
-             try:
-                self.send_command("atz")   # initialize
-             except serial.SerialException:
-                self.State = 0
-                return None
-                
-             self.ELMver = self.get_result()
-             wx.PostEvent(self._notify_window, DebugEvent([2,"atz response:" + self.ELMver]))
-             self.send_command("ate0")  # echo off
-             wx.PostEvent(self._notify_window, DebugEvent([2,"ate0 response:" + self.get_result()]))
-             self.send_command("0100")
-             ready = self.get_result()
-             wx.PostEvent(self._notify_window, DebugEvent([2,"0100 response1:" + ready]))
-             if ready=="BUSINIT: ...OK":
-                ready=self.get_result()
-                wx.PostEvent(self._notify_window, DebugEvent([2,"0100 response2:" + ready]))
-                return None
-             else:             
-                #ready=ready[-5:] #Expecting error message: BUSINIT:.ERROR (parse last 5 chars)
-                wx.PostEvent(self._notify_window, DebugEvent([2,"Connection attempt failed:" + ready]))
-                time.sleep(5)
-                if count==RECONNATTEMPTS:
-                  self.close()
-                  self.State = 0
-                  return None
-                wx.PostEvent(self._notify_window, DebugEvent([2,"Connection attempt:" + str(count)]))
-                count=count+1          
+         try:
+            self.send_command("atz")   # initialize
+         except serial.SerialException:
+            self.State = 0
+            return None
+            
+         self.ELMver = self.get_result()
+         wx.PostEvent(self._notify_window, DebugEvent([2,"atz response:" + self.ELMver]))
+         self.send_command("ate0")  # echo off
+         wx.PostEvent(self._notify_window, DebugEvent([2,"ate0 response:" + self.get_result()]))
+         self.send_command("0100")
+         ready = self.get_result()
+         wx.PostEvent(self._notify_window, DebugEvent([2,"0100 response:" + ready]))
+         return None
               
      def close(self):
          """ Resets device and closes all associated filehandles"""
