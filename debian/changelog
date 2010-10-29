@@ -1,0 +1,5 @@
+pyobd (0.9.2-2) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- SeCons Ltd. www.obdtester.com <info@secons.com>  Fri, 11 Sep 2009 15:24:35 +0200

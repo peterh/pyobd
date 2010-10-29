@@ -1,0 +1,45 @@
+This package was debianized by:
+
+    SeCons Ltd. <info@secons.com> on Fri, 11 Sep 2009 15:24:35 +0200
+
+It was downloaded from:
+
+    <url://www.obdtester.com>
+
+Upstream Author(s):
+
+    SeCons Ltd. <info@secons.com>
+
+Copyright:
+
+    Copyright 2004 Donour Sizemore (donour@uchicago.edu)
+    Copyright 2009 Secons Ltd. (www.obdtester.com)
+
+License:
+
+    pyOBD package is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    pyOBD package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General
+Public License can be found in `/usr/share/common-licenses/GPL'.
+
+The Debian packaging is:
+
+    Copyright C) 2009, SeCons Ltd.  <info@secons.com>
+
+and is licensed under the GPL, see above.
+
+
+# Please also look if there are files or directories which have a
+# different copyright/license attached and list them here.

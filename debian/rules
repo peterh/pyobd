@@ -1,0 +1,97 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# Sample debian/rules that uses debhelper.
+# This file was originally written by Joey Hess and Craig Small.
+# As a special exception, when this file is copied by dh-make into a
+# dh-make output file, you may use that output file without restriction.
+# This special exception was added by Craig Small in version 0.37 of dh-make.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+
+
+
+
+configure: configure-stamp
+
+configure-stamp:
+	dh_testdir
+	# Add here commands to configure the package.
+
+	touch configure-stamp
+
+
+build: build-stamp
+
+build-stamp: configure-stamp  
+	dh_testdir
+	touch build-stamp
+
+clean: 
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+	dh_clean 
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep  
+	dh_installdirs
+
+	#Create temp dir
+	mkdir -p $(CURDIR)/debian/pyobd
+
+	#Install program files
+	
+	cp debugEvent.py $(CURDIR)/debian/pyobd/usr/share/pyobd/debugEvent.py
+	cp obd_io.py $(CURDIR)/debian/pyobd/usr/share/pyobd/obd_io.py
+	cp obd_sensors.py $(CURDIR)/debian/pyobd/usr/share/pyobd/obd_sensors.py
+	cp obd2_codes.py  $(CURDIR)/debian/pyobd/usr/share/pyobd/obd2_codes.py
+	cp pyobd $(CURDIR)/debian/pyobd/usr/share/pyobd/pyobd
+	cp pyobd.gif $(CURDIR)/debian/pyobd/usr/share/pyobd/pyobd.gif
+
+	#Install menufile
+	cp pyobd.desktop $(CURDIR)/debian/pyobd/usr/share/applications/pyobd.desktop
+	cp -d pyobdlink $(CURDIR)/debian/pyobd/usr/bin/pyobd
+
+	#TODO:Install man files
+
+# Build architecture-independent files here.
+binary-indep: install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs 
+	dh_installdocs
+	dh_installexamples
+#	dh_install
+#	dh_installmenu
+#	dh_installdebconf
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_python
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+	dh_installman
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+#	dh_perl
+#	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

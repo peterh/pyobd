@@ -1,0 +1,55 @@
+<HTML>
+<HEAD>
+</HEAD>
+
+<BODY>
+
+<h1><u>Installation Instructions</u></h1>
+
+<h1>Prerequisites:</h1>
+
+First, install these and make sure they work.
+
+<h2>Python:</h2>
+
+A recent release is needed. Developement took place using the 2.3.x
+release series. Any 2.X release <i>should</i> work, but hasn't been
+tested. Under MacOSX 10.3 (panther), Python is installed by
+default. Installation instructions are available at the python
+website: <a href="http://www.python.org">www.python.org</a>
+
+<h2>PySerial</h2>
+
+This is needed to communicate with the serial port. It is available
+from sourceforge: <a
+		     href="http://pyserial.sourceforge.net/">http://pyserial.sourceforge.net/</a>. Download
+and install it. Use version 2.0.
+
+<h2>WxPython (<i>optional</i>):</h2>
+
+WxPython is needed if you want to use the pretty graphical interface
+to sensor data and DTC management. It's available at <a
+							href="http://www.wxpython.org">www.wxpython.org</a>. Version
+2.4 is <b>required</b>. pyOBD will <b>not</b> work with the 2.5
+release series.
+
+<h2>Ncurses (<i>optional</i>):</h2>
+
+In addition to wxpython, there is a text/ncurses interface. To use
+it, enable the ncurses module when you build python. It isn't very
+polished and use is not recommended.
+
+
+<h1>Installation:</h1>
+
+After those requirements, installation is a snap. Simply download the
+release tarball and uncompress it. To "install" pyOBD on the system, simply copy
+the release directory to wherever you want (i.e. /opt, /usr/local).
+
+To use the wx interface run <b>python wxgui.py</b>. If you're using
+MacOSX, substitute "pythonw" for "python".
+
+<hr>
+-- Donour Sizemore 
+</BODY>
+</HTML>

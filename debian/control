@@ -1,0 +1,13 @@
+Source: pyobd
+Section:utils
+Priority: optional
+Maintainer: SeCons Ltd. <www.obdtester.com>  <info@secons.com>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.8.0
+Homepage:<www.obdtester.com> 
+
+Package: pyobd
+Architecture: any
+Depends: python,python-serial,python-wxgtk2.6
+Description:pyOBD is an OBD-II (SAE-J1979) compliant scantool software written entirely in Python. It is meant to interface with the low cost ELM 32x devices such as ELM-USB.
+	pyOBD was written by Donour Sizemore, now maintained and improved by SECONS Ltd.i <www.obdtester.com> and it is Free Software and is distributed under the terms of the GPL.  For Python devlopers, pyOBD provides a single module, obd_io, that allows high level control over sensor data and diagnostic trouble code managment. The entire package has been tested to work on both Mac OSX 10.3 (panther) and Gentoo Linux. Generally speaking, any Posix-type system meeting the requirements below will be supported. In theory, Windows is also supported but has not been tested.
