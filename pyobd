@@ -620,14 +620,14 @@ the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  0211
         for i in range(256):
           try:
             s = serial.Serial("/dev/ttyUSB"+str(i))
-            available.append( (i, s.portstr))
+            available.append(s.portstr)
             s.close()   # explicit close 'cause of delayed GC in java
           except serial.SerialException:
             pass
         for i in range(256):
           try:
             s = serial.Serial("/dev/ttyd"+str(i))
-            available.append( (i, s.portstr))
+            available.append(s.portstr)
             s.close()   # explicit close 'cause of delayed GC in java
           except serial.SerialException:
             pass
