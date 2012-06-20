@@ -89,7 +89,8 @@ class OBDPort:
              self.port = serial.Serial(portnum,baud, \
              parity = par, stopbits = sb, bytesize = databits,timeout = to)
              
-         except serial.SerialException:
+         except serial.SerialException as e:
+             print e
              self.State = 0
              return None
              
@@ -139,7 +140,8 @@ class OBDPort:
          
          # 9 seems to be the length of the shortest valid response
          if len(code) < 7:
-             raise "BogusCode"
+             #raise Exception("BogusCode")
+             print "boguscode?"+code
          
          # get the first thing returned, echo should be off
          code = string.split(code, "\r")
