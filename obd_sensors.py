@@ -101,29 +101,11 @@ def dtc_decrypt(code):
     
     return res
 
+def bin(s):
+    return str(s) if s<=1 else bin(s>>1) + str(s&1)
+
 def hex_to_bitstring(str):
-    bitstring = ""
-    for i in str:
-        # silly type safety, we don't want to eval random stuff
-        if type(i) == type(''): 
-            v = eval("0x%s" % i)
-            if v & 8 :
-                bitstring += '1'
-            else:
-                bitstring += '0'
-            if v & 4:
-                bitstring += '1'
-            else:
-                bitstring += '0'
-            if v & 2:
-                bitstring += '1'
-            else:
-                bitstring += '0'
-            if v & 1:
-                bitstring += '1'
-            else:
-                bitstring += '0'                
-    return bitstring
+    return bin(int(str, 16))
 
 class Sensor:
     def __init__(self,sensorName, sensorcommand, sensorValueFunction, u):
